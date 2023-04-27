@@ -32,12 +32,14 @@ export default function Profile() {
 
   return (
     <Box bg="gray.50" minHeight="100vh">
+      {/* カバー */}
       <Box
         bgImage="https://images.unsplash.com/photo-1682553319940-8db6c8ddee82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80"
         bgSize="cover"
         bgPosition="center"
         h="240px"
       />
+      {/* アバター */}
       <Flex maxW="container.lg" mx="auto" direction="column">
         <Avatar
           size="xl"
@@ -49,6 +51,7 @@ export default function Profile() {
           borderWidth="4px"
           borderColor="white"
         />
+        {/* 名前 */}
         <Stack direction="column" spacing={2} alignItems="center">
           <Heading as="h1" size="lg">
             John Doe
@@ -56,6 +59,7 @@ export default function Profile() {
           <Text fontSize="xl" color="gray.500">
             @johndoe
           </Text>
+          {/* ボタン*/}
         </Stack>
         <Stack direction={'row'} justifyContent={'center'} mt={4}>
           <Button
@@ -68,6 +72,7 @@ export default function Profile() {
           </Button>
           <Button leftIcon={<EmailIcon />}>Contact</Button>
         </Stack>
+        {/* フォロー数・フォロワー数 */}
         <Stack direction={'row'} justifyContent={'center'} mt={4} gap="2">
           <Stack direction={'row'}>
             <Text>Following </Text>
@@ -78,7 +83,10 @@ export default function Profile() {
             <Text fontWeight={'bold'}>20 </Text>
           </Stack>
         </Stack>
+
+        {/* ポートフォリオ */}
         <SimpleGrid columns={[1, 2, 3]} gap={8} px={[4, 8, 16]} mt={12}>
+          {/* アイテム */}
           <Box
             bg="white"
             boxShadow="md"
@@ -108,6 +116,7 @@ export default function Profile() {
               </Stack>
             </Box>
           </Box>
+          {/* アイテム */}
           <Box
             bg="white"
             boxShadow="md"
@@ -137,6 +146,7 @@ export default function Profile() {
               </Stack>
             </Box>
           </Box>
+          {/* アイテム */}
           <Box
             bg="white"
             boxShadow="md"
