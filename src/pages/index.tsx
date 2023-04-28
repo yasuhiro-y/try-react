@@ -47,7 +47,7 @@ export default function Profile() {
       imageUrl:
         'https://images.unsplash.com/photo-1556010042-70cd6e3433fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
       title: 'bbbb33333333',
-      description: 'aaa',
+      description: 'bbbb',
       githubUrl: 'aaa',
       liveDemoUrl: 'aaa',
       likeCount: 31,
