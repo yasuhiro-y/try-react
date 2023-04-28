@@ -1,11 +1,12 @@
 import { Box, Heading, Image, Link, Stack, Text } from '@chakra-ui/react';
 
-type PortfolioItemProps = {
+export type PortfolioItemProps = {
   imageUrl: string;
   title: string;
   description: string;
   githubUrl: string;
   liveDemoUrl: string;
+  likeCount: number;
 };
 
 const PortfolioItem = ({
@@ -14,6 +15,7 @@ const PortfolioItem = ({
   description,
   githubUrl,
   liveDemoUrl,
+  likeCount,
 }: PortfolioItemProps) => (
   <Box
     bg="white"
@@ -25,7 +27,7 @@ const PortfolioItem = ({
   >
     <Image src={imageUrl} alt={title} h={48} w="100%" objectFit="cover" />
     <Box p={4}>
-      <Heading as="h3" size="md" mb={2}>
+      <Heading as="h3" size="lg" mb={2}>
         {title}
       </Heading>
       <Text fontSize="sm" color="gray.500" mb={4}>
@@ -35,6 +37,7 @@ const PortfolioItem = ({
         <Link href={githubUrl}>GitHub</Link>
         <Link href={liveDemoUrl}>Live Demo</Link>
       </Stack>
+      <Text>LikeCount: {likeCount}</Text>
     </Box>
   </Box>
 );

@@ -1,3 +1,6 @@
+import PortfolioItem, {
+  PortfolioItemProps,
+} from '@/components/molecules/domain/PortfolioItem';
 import { EmailIcon } from '@chakra-ui/icons';
 import {
   Avatar,
@@ -29,6 +32,35 @@ export default function Profile() {
       colorScheme: 'pink',
     });
   };
+
+  const portfolioItemList: PortfolioItemProps[] = [
+    {
+      imageUrl:
+        'https://images.unsplash.com/photo-1682553319940-8db6c8ddee82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80',
+      title: 'aaa1111',
+      description: 'aaa',
+      githubUrl: 'aaa',
+      liveDemoUrl: 'aaa',
+      likeCount: 31,
+    },
+    {
+      imageUrl:
+        'https://images.unsplash.com/photo-1556010042-70cd6e3433fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+      title: 'bbbb33333333',
+      description: 'aaa',
+      githubUrl: 'aaa',
+      liveDemoUrl: 'aaa',
+      likeCount: 31,
+    },
+    {
+      imageUrl: 'ccc',
+      title: 'ccc',
+      description: 'aaa',
+      githubUrl: 'aaa',
+      liveDemoUrl: 'aaa',
+      likeCount: 31,
+    },
+  ];
 
   return (
     <Box bg="gray.50" minHeight="100vh">
@@ -75,108 +107,25 @@ export default function Profile() {
         {/* フォロー数・フォロワー数 */}
         <Stack direction={'row'} justifyContent={'center'} mt={4} gap="2">
           <Stack direction={'row'}>
+            <Text color="red.400">Follower </Text>
+            <Text fontWeight={'bold'}>20 </Text>
+          </Stack>
+          <Stack direction={'row'}>
             <Text>Following </Text>
             <Text fontWeight={'bold'}>{followers} </Text>
           </Stack>
-          <Stack direction={'row'}>
-            <Text>Follower </Text>
-            <Text fontWeight={'bold'}>20 </Text>
-          </Stack>
         </Stack>
-
         {/* ポートフォリオ */}
         <SimpleGrid columns={[1, 2, 3]} gap={8} px={[4, 8, 16]} mt={12}>
-          {/* アイテム */}
-          <Box
-            bg="white"
-            boxShadow="md"
-            borderRadius="md"
-            overflow="hidden"
-            borderWidth="1px"
-            borderColor="gray.200"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
-              alt="Project 1"
-              h={48}
-              w="100%"
-              objectFit="cover"
-            />
-            <Box p={4}>
-              <Heading as="h3" size="md" mb={2}>
-                Project 1
-              </Heading>
-              <Text fontSize="sm" color="gray.500" mb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus auctor fringilla orci, vel tempus eros vulputate ac.
-              </Text>
-              <Stack direction={'row'} spacing={2}>
-                <Link>GitHub</Link>
-                <Link>Live Demo</Link>
-              </Stack>
-            </Box>
-          </Box>
-          {/* アイテム */}
-          <Box
-            bg="white"
-            boxShadow="md"
-            borderRadius="md"
-            overflow="hidden"
-            borderWidth="1px"
-            borderColor="gray.200"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
-              alt="Project 2"
-              h={48}
-              w="100%"
-              objectFit="cover"
-            />
-            <Box p={4}>
-              <Heading as="h3" size="md" mb={2}>
-                Project 2
-              </Heading>
-              <Text fontSize="sm" color="gray.500" mb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus auctor fringilla orci, vel tempus eros vulputate ac.
-              </Text>
-              <Stack direction={'row'} spacing={2}>
-                <Link>GitHub</Link>
-                <Link>Live Demo</Link>
-              </Stack>
-            </Box>
-          </Box>
-          {/* アイテム */}
-          <Box
-            bg="white"
-            boxShadow="md"
-            borderRadius="md"
-            overflow="hidden"
-            borderWidth="1px"
-            borderColor="gray.200"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
-              alt="Project 3"
-              h={48}
-              w="100%"
-              objectFit="cover"
-            />
-            <Box p={4}>
-              <Heading as="h3" size="md" mb={2}>
-                Project 3
-              </Heading>
-              <Text fontSize="sm" color="gray.500" mb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus auctor fringilla orci, vel tempus eros vulputate ac.
-              </Text>
-              <Stack direction={'row'} spacing={2}>
-                <Link>GitHub</Link>
-                <Link>Live Demo</Link>
-              </Stack>
-            </Box>
-          </Box>
+          {portfolioItemList.map(item => {
+            return <PortfolioItem {...item} />;
+          })}
         </SimpleGrid>
+        <Box p={10}>
+          {portfolioItemList.map(item => {
+            return <Text>{item.title}</Text>;
+          })}
+        </Box>{' '}
       </Flex>
     </Box>
   );
